@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class KeyboardInputComponent {
   inputValue: string = '';
-  private isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   constructor(private cdr: ChangeDetectorRef) { }
 
@@ -22,12 +21,9 @@ export class KeyboardInputComponent {
     } else if (event.key === 'Backspace') {
       event.preventDefault();
       this.inputValue = this.inputValue.slice(0, -1);
-      this.cdr.detectChanges(); // Força atualização visual
+      this.cdr.detectChanges();
     } else if (event.key.length === 1 && !event.ctrlKey && !event.metaKey) {
       this.inputValue += event.key;
     }
   }
-
-  // Remove o handler desnecessário
-  // onInputChange() não é mais usado
 }
