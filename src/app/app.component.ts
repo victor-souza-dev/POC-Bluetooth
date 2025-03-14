@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { BluetoothConnectorComponent } from './components/bluetooth-connector/bluetooth-connector.component';
-import { KeyboardInputComponent } from './components/keyboard-input/keyboard-input.component';
+import { TabComponent } from './components/tab/tab.component';
 
 @Component({
   selector: 'app-root',
-  imports: [BluetoothConnectorComponent, KeyboardInputComponent],
+  imports: [TabComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
