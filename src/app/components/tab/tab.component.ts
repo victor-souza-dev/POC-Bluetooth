@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, BluetoothConnectorComponent, KeyboardInputComponent],
 })
 export class TabComponent {
-  activeTab: 'bluetooth' | 'keyboard' = 'bluetooth';
+  activeTab: 'bluetooth' | 'keyboard' = 'keyboard';
 
   setActiveTab(tab: 'bluetooth' | 'keyboard') {
     this.activeTab = tab;
