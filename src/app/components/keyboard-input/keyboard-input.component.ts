@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class KeyboardInputComponent {
   inputValue: string = '';
+  isEnableSound: boolean = true;
+  soundCooldown: number = 1000;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -30,9 +32,17 @@ export class KeyboardInputComponent {
   }
 
   private playSound(): void {
-    const audio = new Audio(
-      'https://github.com/Do-nada-ao-tudo/RepoStaticFile/raw/9ca9c2bc35872f988a2e1daaa7f4087bd1c5794b/sound-bip-alert.mp3'
-    );
-    audio.play();
+    if (this.isEnableSound) {
+      const audio = new Audio(
+        'https://github.com/Do-nada-ao-tudo/RepoStaticFile/raw/9ca9c2bc35872f988a2e1daaa7f4087bd1c5794b/sound-bip-alert.mp3'
+      );
+      audio.play();
+
+      this.isEnableSound = false;
+
+      setTimeout(() => {
+        this.isEnableSound = true;
+      }, this.soundCooldown);
+    }
   }
 }
